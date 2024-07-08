@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cpp-like-js": "^1.0.4",
+    "crypto": "^1.0.1",
+    "express": "^4.19.2",
+    "roving-ux": "^1.0.5",
+    "socket.io": "^4.7.5",
+    "ws": "^8.17.1"
+  },
+  "devDependencies": {
+    "postcss-preset-env": "6.7.x",
+    "vite": "2.x  || >2.0.0-alpha",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "name": "wordsworth-main",
+  "description": "",
+  "version": "1.0.0",
+  "main": "one-v-one.js",
+  "author": "",
+  "license": "ISC"
+}

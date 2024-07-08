@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/resources/favicon.ico" sizes="any">
+  <link rel="icon" href="/resources/favicon.svg" type="image/svg+xml">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/css/leaderboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+<body>
+  <main>
+    <div id="header">
+      <h1 id="lb">Leaderboard</h1>
+      <button id="share">
+        <!-- <i class="fa fa-fw fa-download"></i> -->
+        <i class="ph ph-share-network"></i>
+        <!-- <i class="fa-solid fa-download"></i> -->
+      </button>
+    </div>
+    <div id="leaderboard">
+      <div class="ribbon"></div>
+      <table>
+        <tbody>
+          <!-- Rows will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+    <div id="buttons">
+      <a href="/"><button class="exit">Exit</button></a>
+      <a href="/main-menu"><button class="continue">Continue</button></a>
+    </div>
+  </main>
+  <script>
+    function getGameIdFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      console.log("Leaderboard: ", urlParams);
+      return urlParams.get('gameId');
+    }
+    var baseUrl = window.location.origin; // Dynamically determine the base URL
+    function loadLeaderboard() {
+      const gameId = getGameIdFromUrl(); // Retrieve game ID from URL or storage
+
+      fetch(`${baseUrl}/leaderboard?gameId=${gameId}`)
+        .then(response => response.json())
+        .then(data => {
+          // Function to convert time string "MM:SS:MS" to milliseconds
+          function timeToMilliseconds(time) {
+            const [minutes, seconds, milliseconds] = time.split(':').map(Number);
+            return (minutes * 60 * 1000) + (seconds * 1000) + milliseconds;
+          }
+
+          // Separate entries with "LOSER" and valid times
+          const losers = [];
+          const validEntries = [];
+          const cheaters = [];
+
+          data.forEach(entry => {
+            if (entry.time === 'LOSER') {
+              losers.push(entry);
+            } else if (timeToMilliseconds(entry.time) < 5000) {
+              cheaters.push(entry);
+            } else {
+              validEntries.push(entry);
+            }
+          });
+
+          // Sort valid entries by time (ascending)
+          const sortedValidEntries = validEntries.sort((a, b) => timeToMilliseconds(a.time) - timeToMilliseconds(b.time));
+
+          // Update the leaderboard table
+          const tableBody = document.querySelector('#leaderboard tbody');
+          tableBody.innerHTML = '';
+
+          if (data.length === 0) {
+            const tableBody = document.querySelector('#leaderboard tbody');
+            tableBody.innerHTML = '<tr><td colspan="3" class="empty-message">The leaderboard is empty. No scores available.</td></tr>';
+            return;
+          }
+          
+          // Combine sorted valid entries, cheaters, and losers
+          const combinedEntries = [...sortedValidEntries, ...losers, ...cheaters];
+
+          combinedEntries.forEach((entry, index) => {
+            const row = tableBody.insertRow();
+            const numberCell = row.insertCell(0);
+            const nameCell = row.insertCell(1);
+            const pointsCell = row.insertCell(2);
+
+            numberCell.textContent = index + 1;
+            nameCell.textContent = entry.playerName;
+            
+            /*if (entry.time === 'LOSER') {
+              pointsCell.textContent = entry.time;
+              row.classList.add('loser-row');
+            } else if (timeToMilliseconds(entry.time) < 5000) {
+              pointsCell.innerHTML = `<span class="cheater-row">CHEATER</span>`;
+              row.classList.add('cheater-row');
+            } else {
+              pointsCell.innerHTML = `${entry.time} ${index === 0 ? '<img class="gold-medal" src="/resources/gold-medal.png"/>' : ''}`;
+              row.classList.add('winner-row');
+            }*/
+
+            if (entry.time === 'LOSER') {
+              pointsCell.textContent = entry.time;
+              row.classList.add('loser-row');
+          } else if (timeToMilliseconds(entry.time) < 5000) {
+              pointsCell.innerHTML = `<span class="cheater-row">CHEATER</span>`;
+              row.classList.add('cheater-row');
+          } else {
+              let medalImage = '';
+              if (index === 0) {
+                  medalImage = '<img class="gold-medal" src="/resources/gold-medall.png"/>';
+              } else if (index === 1) {
+                  medalImage = '<img class="silver-medal" src="/resources/silver-medal.png"/>';
+              } else if (index === 2) {
+                  medalImage = '<img class="bronze-medal" src="/resources/bronze-medal.png"/>';
+              }
+              
+              pointsCell.innerHTML = `${entry.time} ${medalImage}`;
+              row.classList.add('winner-row');
+          }
+
+
+          
+            numberCell.classList.add('number');
+            nameCell.classList.add('name');
+            pointsCell.classList.add('points');
+          });
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    window.onload = function() {
+      loadLeaderboard();
+    };
+
+    async function fetchLeaderboard() {
+      const response = await fetch('/leaderboard');
+      const data = await response.json();
+      return data;
+    }
+  </script>
+  <script>
+    async function captureFullPage() {
+      const mainElement = document.querySelector('main');
+      const originalHeight = mainElement.style.height;
+      const originalOverflow = mainElement.style.overflow;
+
+      // Expand the main element's height to the full scroll height
+      mainElement.style.height = `${mainElement.scrollHeight}px`;
+      mainElement.style.overflow = 'visible';
+
+      const canvas = await html2canvas(mainElement, {
+        useCORS: true,
+        scrollX: -window.scrollX,
+        scrollY: -window.scrollY,
+        width: mainElement.scrollWidth,
+        height: mainElement.scrollHeight,
+        windowWidth: mainElement.scrollWidth,
+        windowHeight: mainElement.scrollHeight,
+      });
+
+      // Restore the original height and overflow
+      mainElement.style.height = originalHeight;
+      mainElement.style.overflow = originalOverflow;
+
+      return canvas.toDataURL('image/png');
+    }
+
+    document.getElementById('share').addEventListener('click', async () => {
+      const dataURL = await captureFullPage();
+
+      // Create a link element
+      const link = document.createElement('a');
+
+      // Set the download attribute with a filename
+      link.download = 'leaderboard.png';
+
+      // Set the href to the Data URL
+      link.href = dataURL;
+
+      // Append the link to the body
+      document.body.appendChild(link);
+
+      // Programmatically click the link to trigger the download
+      link.click();
+
+      // Remove the link from the document
+      document.body.removeChild(link);
+    });
+  </script>
+  
+</body>
+</html>

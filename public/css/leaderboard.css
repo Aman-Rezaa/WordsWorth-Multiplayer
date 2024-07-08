@@ -1,0 +1,310 @@
+* {
+    font-size: 62, 5%;
+    box-sizing: border-box;
+    margin: 0;
+    max-height: 100vh;
+  }
+  
+  body {
+    background-image: url(../resources/beer.avif);
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background-size: 100% 100%;
+    /* background-color: #2d1a77; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  main {
+    width: 40rem;
+    height: 43rem;
+    /* background-color: #ffffff; */
+    /* -webkit-box-shadow: 0px 5px 15px 8px #e4e7fb; */
+    box-shadow: 0px 5px 15px 8px #e4e7fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5rem;
+  }
+  
+  #header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 2rem;
+  }
+  
+  #share {
+    width: 4.5rem;
+    height: 3rem;
+    background-color: #f55e77;
+    border: 0;
+    border-bottom: 0.2rem solid #c0506a;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+  
+  #share:active {
+    border-bottom: 0;
+  }
+  
+  #share i {
+    color: #fff;
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2.8rem;
+    /* color: #141a39; */
+    text-transform: uppercase;
+    cursor: default;
+  }
+  #lb{
+    color: black;
+  }
+  
+  #leaderboard {
+    width: 100%;
+    position: relative;
+    max-height: 60vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  #leaderboard::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+  .loser-row {
+    /* color: red; */
+    font-weight: 700;
+    font-size: 20px;
+    color: white !important;
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(178,9,9,1) 72%);
+    
+  }
+  .winner-row {
+    /* color: #000; */
+    font-weight: 700;
+    font-size: 20px;
+    color: white !important;
+    /* background: rgb(0,0,0); */
+/* background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(9,154,178,1) 72%); */
+background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(26,192,104,1) 71%);
+     
+  }
+  .cheater-row{
+    
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    color: white !important;
+   background: linear-gradient(to right, rgb(237, 34, 36), rgb(243, 91, 34), rgb(249, 150, 33), rgb(245, 193, 30), rgb(241, 235, 27) 27%, rgb(241, 235, 27), rgb(241, 235, 27) 33%, rgb(99, 199, 32), rgb(12, 155, 73), rgb(33, 135, 141), rgb(57, 84, 165), rgb(97, 55, 155), rgb(147, 40, 142));
+  }
+  table {
+    
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    color: #141a39;
+    cursor: default;
+    
+    
+  }
+  
+  tr {
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.2rem;
+  }
+  
+  tr:not(:first-child):hover {
+    background-color: #fff;
+    transform: scale(1.1);
+    -webkit-box-shadow: 0px 5px 15px 8px #e4e7fb;
+    box-shadow: 0px 5px 15px 8px #e4e7fb;
+  }
+  
+  tr:nth-child(odd) {
+    /* background-color: #f9f9f9; */
+  }
+  
+  tr:nth-child(1) {
+    /* color: #fff; */
+    
+  }
+  
+  td {
+    height: 5rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    position: relative;
+  }
+  
+  .number {
+    width: 1rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: left;
+
+  }
+  
+  .name {
+    text-align: left;
+    font-size: 1.2rem;
+
+  }
+  
+  
+  .points {
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    align-items: center;
+  
+  }
+  
+  .points:first-child {
+    width: 10rem;
+  }
+  
+  .gold-medal {
+    color: gold;
+    height: 3rem;
+    margin-left: 1.5rem;
+  }
+  
+  .ribbon {
+    width: 42rem;
+    height: 5.5rem;
+    top: -0.5rem;
+    /* background: rgb(255,255,255); */
+    /* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(217,28,28,1) 81%);    */
+     /* background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);     background-color: rgb(74, 255, 74); */
+    /* background-color: aqua; */
+    background: rgb(0,0,0); 
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(9,154,178,1) 72%);
+    position: absolute;
+    left: -1rem;
+    -webkit-box-shadow: 0px 15px 11px -6px #7a7a7d;
+    box-shadow: 0px 15px 11px -6px #7a7a7d;
+  }
+  
+  .ribbon::before {
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    bottom: -0.8rem;
+    
+    left: 0.35rem;
+    transform: rotate(45deg);
+    background-color: #5c5be5;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .ribbon::after {
+    content: "";
+    
+    height: 1.5rem;
+    width: 1.5rem;
+    bottom: -0.8rem;
+    right: 0.35rem;
+    transform: rotate(45deg);
+    background-color: #5c5be5;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  #buttons {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .exit {
+    width: 11rem;
+    height: 3rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #7e7f86;
+    border: 0;
+    background-color: #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+  
+  .exit:hover {
+    border: 0.1rem solid #5c5be5;
+  }
+  
+  .continue {
+    width: 11rem;
+    height: 3rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.3rem;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #5c5be5;
+    border: 0;
+    border-bottom: 0.2rem solid #3838b8;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+  
+  .continue:active {
+    border-bottom: 0;
+  }
+  
+  @media (max-width: 740px) {
+      * {
+        font-size: 70%;
+      }
+  }
+  
+  @media (max-width: 500px) {
+      * {
+        font-size: 55%;
+      }
+  }
+  
+  @media (max-width: 390px) {
+      * {
+        font-size: 45%;
+      }
+  }
+
+  .empty-message{
+    color: black;
+    z-index: 10;
+
+  }
+
+  .bronze-medal{
+    width: 50px;
+    height: 60px;
+    margin-left: 24px;
+  }
+  
+  .silver-medal{
+    width: 50px;
+    height: 60px;
+    margin-left: 24px;
+  }
+
+  
+  .gold-medal{
+    width: 50px;
+    height: 55px;
+    /* margin-right: 24px; */
+  }

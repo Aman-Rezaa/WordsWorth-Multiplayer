@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/resources/favicon.ico" sizes="any">
+  <link rel="icon" href="/resources/favicon.svg" type="image/svg+xml">
+  <title>One v One Wordle</title>
+  <link rel="stylesheet" href="/css/1v1_link_gen.css">
+  <style>
+    .custom-alert {
+      padding: 10px;
+      background-color: red;
+      color: white;
+      margin: 20px 0;
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      border-radius: 5px;
+      font-weight: 600;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>PLAY WITH FRIENDS</h1>
+  <!-- <input type="text" id="wordToFind" placeholder="Enter a 5 letter word to find" maxlength="5"> -->
+  <input type="text" id="wordToFind" placeholder="Enter a 5 Letter Word To Find" maxlength="5" oninput="showSuggestions()">
+  <div class="autocomplete-suggestions" id="suggestions"></div>
+  <button id="startGameButton" onclick="startGame()" disabled>Start Game</button>
+ 
+  <div class="belowAuto">
+  <p >SHARE THIS LINK WITH A FRIEND TO START THE GAME :</p>
+  <input type="text" id="gameLink" readonly>
+  <button class="copy-button" onclick="copyToClipboard()">Copy Link</button>
+  </div>
+  <!-- <img src="./resources/title-img1.avif" alt="" style="height: 100vh;"> -->
+  <div class="custom-alert" id="customAlert">Not In Our list</div>
+
+  <script src="/js/1v1_link_gen.js"></script>
+  <script>
+    function showCustomAlert(message) {
+      const alertElement = document.getElementById("customAlert");
+      alertElement.textContent = message;
+      alertElement.style.display = "block"; // Show alert
+      setTimeout(() => {
+        alertElement.style.display = "none"; // Hide alert after 5 s
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

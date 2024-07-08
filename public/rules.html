@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/resources/favicon.ico" sizes="any">
+    <link rel="icon" href="/resources/favicon.svg" type="image/svg+xml">
+    <title>Game Rules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/rules.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Rules</h1>
+        <h2>Objective</h2>
+        <p>Guess the hidden word before you run out of time/tries.</p>
+        <h2>How to Play</h2>
+        <ul>
+            <li>You have six attempts to guess a five-letter word.</li>
+            <li>After each guess, the color of the tiles will change to show how close your guess was to the word.</li>
+        </ul>
+        <h2>Tile Colors</h2>
+        <ul>
+            <li id="raju1"><span class="green">Green</span>: The letter is in the correct spot.</li>
+            <li id="raju2"><span class="yellow">Yellow</span>: The letter is in the word but in the wrong spot.</li>
+            <li id="raju3"><span class="gray">Grey</span>: The letter is not in the word at all.</li>
+        </ul>
+        <h2>Game Modes</h2>
+        <ul>
+            <li><strong>Easy</strong>: 10 minutes to guess the word.</li>
+            <li><strong>Medium</strong>: 5 minutes to guess the word.</li>
+            <li><strong>Hard</strong>: 2.5 minutes to guess the word.</li>
+            <li><strong>Insane</strong>: 1 minute to guess the word.</li>
+        </ul>
+        <h2>Special Features</h2>
+        <ul>
+            <li><strong>Play Against PC</strong>: Compete against the computer.</li>
+            <li><strong>Play Against Friends</strong>: Challenge your friends in a multiplayer mode.</li>
+            <li><strong>Time Rush</strong>: Race against the clock in different difficulty modes.</li>
+        </ul>
+        <h2>Scoring</h2>
+        <ul>
+            <li>In single-player mode, player has no time limit and wins on a correct guess.</li>
+            <li>In time-rush mode, player wins on a correct guess before time runs out.</li>
+            <li>In multiplayer mode, scores are based on the time taken to guess the word correctly.</li>
+            <li>If the time runs out, the player is marked as "LOSER."</li>
+            <li>Player is marked as "CHEATER" if found cheating, process is abstracted for fair play.</li>
+            <li>Number of tries to arrive on a correct guess is 6 for all the modes.</li>
+        </ul>
+        <h2>Leaderboard</h2>
+        <ul>
+            <li>The leaderboard displays the top players and their times and can be accessed with the same game link.</li>
+            <li>The correct word and the final leaderboard will only be displayed after the contest ends despite the immediate win.</li>
+            <li>Winners are highlighted with a gold, silver and bronze medal.</li>
+            <li>Losers are listed at the middle.</li>
+            <li>Cheaters are listed at the bottom.</li>
+        </ul>
+    </div>
+</body>
+</html>

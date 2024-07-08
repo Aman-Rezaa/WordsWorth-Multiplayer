@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+  font-family: 'Paytone One', sans-serif;
+}
+body {
+  /* font-family: ubuntu; */
+  background-color: rgb(35, 35, 65);
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  color: #f0f0f0;
+  
+}
+
+h1 {
+  color: #f0f0f0;
+  margin-bottom: 20px;
+  font-family: 'Paytone One', sans-serif;
+    
+    font-size: 5vw;
+    
+    letter-spacing: 2px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  /* font-family: ubuntu; */
+  font-family: 'Paytone One', sans-serif;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  /* font-family: ubuntu; */
+  height: 50px;
+
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#gameLink {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #e9ecef;
+  color: #495057;
+  /* font-family: ubuntu; */
+  font-family: 'Paytone One', sans-serif;
+}
+
+#gameLink:focus {
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+  /* font-family: ubuntu; */
+  font-family: 'Paytone One', sans-serif;
+}
+
+button:hover {
+  background-color: #218838;
+  
+}
+
+.copy-button {
+  background-color: #007bff;
+  height: 50px;
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+}
+.autocomplete-suggestions {
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 250px;
+  overflow-y: auto;
+  width: 30%;
+  margin: 0 auto;
+  background-color: white;
+  position: absolute;
+  
+  margin-left: 50px;
+  z-index: 1000;
+  color: white;
+  background-color: #313335;
+  border-radius: 20px;
+  
+}
+
+.autocomplete-suggestion {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: left;
+  border-bottom: 1px solid white;
+  /* font-family: ubuntu; */
+  font-family: 'Paytone One', sans-serif;
+  
+}
+
+.autocomplete-suggestion:hover {
+  background-color: #ddd;
+  color: black;
+}
+.belowAuto{
+  margin-top: 250px;
+  /* font-family: ubuntu; */
+  font-family: 'Paytone One', sans-serif;
+}
+.belowAuto p{
+  text-transform: capitalize;
+  font-size: 20px;
+  color: yellow;
+  font-weight: 600;
+  
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/resources/favicon.ico" sizes="any">
+  <link rel="icon" href="/resources/favicon.svg" type="image/svg+xml">
+  <title>Game Expired</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: rgb(35, 35, 65);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    .expired-container {
+      text-align: center;
+    }
+    .expired-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      
+      border-radius: 15px;
+      font-weight: 700;
+      border: 5px solid white;
+      color: #f0f0f0;
+      background-color: black;
+      
+    }
+    .expired-container button:hover{
+      color: black;
+      background-color: white;
+    }
+   p{
+      font-weight: 500;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="expired-container">
+    <h1>THE GAME HAS ENDED!</h1>
+    <p id="word"></p>
+    <button onclick="viewLeaderboard()">VIEW LEADERBOARD</button>
+  </div>
+  <script src="/js/expired.js">
+    
+  </script>
+</body>
+</html>

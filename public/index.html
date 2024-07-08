@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WordsWorth</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/resources/favicon.ico" sizes="any">
+    <link rel="icon" href="/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/wordle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&family=Rubik+Maps&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Monoton&display=swap" rel="stylesheet">
+<link href="https://www.fontspace.com/chailce-noggin-font-f83197" rel="stylesheet">
+    
+
+
+<style>
+  .custom-alert {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    margin: 20px 0;
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+</head>
+<body>
+
+
+    <h1 id="title"><img src="/resources/android-chrome-512x512.png" alt="logo" id="img"><a href="/main-menu" id="topper">WORDSWORTH</a></h1>
+    <br>
+    <div class="main">
+        <div id="hang">
+            <div class="hangman">
+                <img id="hang-man-img" src="/resources/hangman-0.svg" alt="">
+            </div>
+        </div>
+
+
+        <div id="board"></div>
+        
+        <div class="rules">
+         <!-- <div class="rule-1"><h2>RULES</h2></div>
+         <div class="rule-2">
+            <p>
+                Get ready to test your vocabulary and word guessing prowess!
+                Every word carries weight and consequence, so come
+                engage in a subtle dance with language and 
+                celebrate your word mastery! But remember, every word is indeed 
+                worth a life — a life in the game that hangs in the balance with each guess.
+                So, do what you must, just DON'T LET THE POOR HANGMAN DOWN!
+            </p>
+            <br>  -->
+
+         <!-- <div class="mid">
+         <button id="button12" onclick="showHide1();">How To Play</button>
+         </div> -->
+         
+                <!-- <div id="output" class="output">
+                <p>1) Guess the SECRET WORD within 6 attempts.
+                <br>2) If you guess the word correctly, you win!
+                <br>3) If your guess is incorrect: A part of The Hangman is added.
+                <br>4) After 6 incorrect guesses, The Hangman is complete, and you LOSE.
+                <br>5) GREEN tile means correct letter & location.
+                <br>6) YELLOW tile means correct letter & incorrect location.
+                <br>7) GREY tile means letter guessed is incorrect. 
+                </p>
+          </div> -->
+
+                
+          <!-- </div>  
+        </div> -->
+        <div class="stopwatch">
+          <!-- <h1><span class="gold"></span></h1> -->
+          <div class="circle">
+            <span class="time" id="display">00:00:00</span>
+          </div>
+    
+          <div class="controls">
+            <button onclick="showCircle()" class="mcStan">SHOW</button>
+            <button onclick="hideCircle()" class="mcStan">HIDE</button>
+
+            <!-- <button class="buttonPlay">
+              <img id="playButton" src="https://res.cloudinary.com/https-tinloof-com/image/upload/v1593360448/blog/time-in-js/play-button_opkxmt.svg" />
+    
+              <img id="pauseButton" src="https://res.cloudinary.com/https-tinloof-com/image/upload/v1593360448/blog/time-in-js/pause-button_pinhpy.svg" />
+            </button> -->
+    
+            <!-- <button class="buttonReset">
+              <img id="resetButton" src="https://res.cloudinary.com/https-tinloof-com/image/upload/v1593360448/blog/time-in-js/reset-button_mdv6wf.svg" />
+            </button> -->
+          </div>
+        </div>
+        <div id="mcdd"> <a href="/rules.html"><button id="mcd">CLICK TO SEE RULES</button></a> </div>
+      </div>
+    <br><br>
+    <center>
+        <h1 id="answer">
+        </h1>
+    </center>
+
+
+    <div class="game-modal" id="gameModal">
+        <div class="content">
+            <img src="#" alt="gif">
+            <h4>Game Over!</h4>
+            <p>The correct word was: <b>aks-ar</b></p>
+            <!-- <button class="play-again">Play Again</button> -->
+            <input class="play-again" type="button" value="Play Again" onClick="window.location.reload(true)">
+        </div>
+    </div>
+    <div id="mobile-overlay">
+      <!-- <img src="/resources/css-gone.gif" alt="Please open on desktop"> -->
+    </div>
+    <div class="custom-alert" id="customAlert">Not In Our list</div>
+    <audio id="background-music" src="/resources/game-music-loop-3-144252.mp3" preload="auto"></audio>
+  
+  
+   
+    
+    <script src="/js/wordle.js"></script>
+
+    <!-- JavaScript to attach event listener to the button -->
+   
+    <script>
+
+      const backgroundMusic = document.getElementById('background-music');
+   
+      backgroundMusic.loop = true; 
+      backgroundMusic.volume = 0.5;
+      backgroundMusic.play();
+       
+        function showHide1() {
+            let outputDiv = document.getElementById('output');
+            let rule2Paragraph = document.querySelector('.rule-2 p');
+            if (outputDiv.style.display === 'none') {
+              outputDiv.style.display = 'block';
+              rule2Paragraph.style.display = 'none';
+            } else {
+              outputDiv.style.display = 'none';
+              rule2Paragraph.style.display = 'block';
+            }
+          }
+
+          function showCircle() {
+            document.querySelector('.circle').style.display = 'flex';
+          }
+      
+          function hideCircle() {
+            document.querySelector('.circle').style.display = 'none';
+          }
+          
+          function showCustomAlert(message) {
+            const alertElement = document.getElementById("customAlert");
+            alertElement.textContent = message;
+            alertElement.style.display = "block"; // Show alert
+            setTimeout(() => {
+              alertElement.style.display = "none"; // Hide alert after 1 s
+            }, 1000);
+          }
+    </script>
+    <!-- <script>
+        function getGameIdFromUrl() {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get('gameId');
+        }
+    
+        const gameId = getGameIdFromUrl();
+    
+        if (gameId) {
+          fetch(`http://localhost:3000/join-game?gameId=${gameId}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.wordToFind) {
+                const wordToGuess = data.wordToFind;
+                console.log('Word to guess:', wordToGuess);
+                // Initialize your game with wordToGuess
+              } else {
+                console.error('Error: No word to guess found.');
+              }
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+          console.error('Error: gameId not found in URL.');
+        }
+      </script> -->
+</body>
+
+</html>
