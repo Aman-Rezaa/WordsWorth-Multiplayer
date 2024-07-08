@@ -84,7 +84,7 @@ const TIMER_DURATIONS = {
 
   function startGame() {
     const mode = getModeFromUrl();
-    console.log(mode);
+    // console.log(mode);******************************
     const duration = TIMER_DURATIONS[mode];
   
     if (duration) {
@@ -109,7 +109,7 @@ wordList = wordList.concat(guessList);
 
 let findEnd = 1;
 var word = guessList[Math.floor(Math.random() * guessList.length)].toUpperCase();
-console.log(word);
+// console.log(word);*************************************
 
 window.onload = function () {
   initialize();
@@ -162,7 +162,7 @@ function playAudios() {
 
   function updateHangmanImage() {
     const hangmanImage = document.getElementById("hang-man-img");
-    console.log(findEnd);
+    // console.log(findEnd);***********************************************
     if(findEnd===2){
     isVictory=true;
     
@@ -336,7 +336,7 @@ function update() {
 
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
-        console.log(currTile);
+        // console.log(currTile);****************************************
         let letter = currTile.innerText;
         guess += letter;
     }
@@ -347,12 +347,12 @@ function update() {
         //alert('🏆🏆🏆CONGRATULATIONS🏆🏆🏆');
     }
     guess = guess.toLowerCase();
-    console.log(guess);
+    // console.log(guess);**************************************************
     
     // if(guess===word){alert('CONGRATULATIONS');}
     if (!wordList.includes(guess)) {
-        console.log('My guess is: '+ guess)
-        console.log('hello')
+        // console.log('My guess is: '+ guess)******************************
+        // console.log('hello')*********************************************
         // document.getElementById("answer").innerText = "Not in word list";
         // return alert('Not In Our list');
 
@@ -372,11 +372,11 @@ function update() {
             letterCount[letter] = 1;
         }
     }
-    console.log(letterCount);
+    // console.log(letterCount);*****************************************
 
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
-        console.log(currTile.innerText);
+        // console.log(currTile.innerText);*******************************
         let letter = currTile.innerText;
 
         if (word[c] == letter) {
@@ -393,7 +393,7 @@ function update() {
         }
     }
 
-    console.log(letterCount);
+    // console.log(letterCount);********************************************
 
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());

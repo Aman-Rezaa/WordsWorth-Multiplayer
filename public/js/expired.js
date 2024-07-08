@@ -8,7 +8,7 @@
   }
   function getGameIdFromUrl() {
     const url = window.location.href;
-    console.log(url);
+    // console.log(url);*********************************************************
     const gameId = url.substring(url.lastIndexOf('=')+1 , url.lastIndexOf('/'));
     return gameId;
   }

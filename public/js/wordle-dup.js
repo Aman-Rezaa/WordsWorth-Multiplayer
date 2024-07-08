@@ -29,7 +29,7 @@ var word; // Global variable declaration
 
 function startGame(wordToStart) {
   word = wordToStart.toUpperCase(); // Update the global variable
-  console.log('Game started with word:', word);
+//   console.log('Game started with word:', word);********************************8
 }
 // var onlyOnce=0;
 window.onload = function () {
@@ -85,7 +85,7 @@ function playAudios() {
 
   function updateHangmanImage() {
     const hangmanImage = document.getElementById("hang-man-img");
-    console.log(findEnd);
+    // console.log(findEnd);***********************************888
     if(findEnd===2){
     isVictory=true;
     
@@ -352,7 +352,7 @@ function update() {
 
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
-        console.log(currTile);
+        // console.log(currTile);**********************************
         let letter = currTile.innerText;
         guess += letter;
     }
@@ -363,11 +363,11 @@ function update() {
         // alert('🏆🏆🏆CONGRATULATIONS🏆🏆🏆');
     }
     guess = guess.toLowerCase();
-    console.log(guess);
+    // console.log(guess);******************************************
     
     if (!wordList.includes(guess)) {
-        console.log('My guess is: ' + guess);
-        console.log('hello');
+        // console.log('My guess is: ' + guess);
+        // console.log('hello');**************************************
         // document.getElementById("answer").innerText = "Not in word list";
         return showCustomAlert('Not In Our list');
     }
@@ -382,11 +382,11 @@ function update() {
             letterCount[letter] = 1;
         }
     }
-    console.log(letterCount);
+    // console.log(letterCount);**********************************************
 
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
-        console.log(currTile.innerText);
+        // console.log(currTile.innerText);*************************************
         let letter = currTile.innerText;
 
         if (word[c] == letter) {
@@ -403,7 +403,7 @@ function update() {
         }
     }
 
-    console.log(letterCount);
+    // console.log(letterCount);***********************************
 
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());

@@ -45,7 +45,7 @@
         .then(data => {
           if (data.wordToFind) {
             const wordToGuess = data.wordToFind;
-            console.log('Word to guess:', wordToGuess);
+            // console.log('Word to guess:', wordToGuess);******************************************
             // Initialize your game with wordToGuess
           } else {
             console.error('Error: No word to guess found.');
