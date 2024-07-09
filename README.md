@@ -14,15 +14,17 @@ A word game built using HTML, CSS, Bootstrap JavaScript, Node.js, Express.js and
 
 1. *Clone the repository:*
 
-    bash
+    ```bash
     git clone https://github.com/Aman-Rezaa/WordsWorth-Multiplayer.git
     cd WordsWorth-Multiplayer
+    ```
     
 
 2. *Install dependencies:*
 
-    bash
+    ```bash
     npm install
+    ```
     
 
 3. *Set up environment variables: (optional)*
@@ -37,8 +39,9 @@ A word game built using HTML, CSS, Bootstrap JavaScript, Node.js, Express.js and
 
 4. *Start the server:*
 
-    bash
+    ```bash
     npm start
+    ```
     
 
 5. *Open the application in your browser:*
