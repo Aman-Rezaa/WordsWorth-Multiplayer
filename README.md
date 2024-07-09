@@ -48,7 +48,7 @@ A word game built using HTML, CSS, Bootstrap JavaScript, Node.js, Express.js and
 
     ```bash
     Navigate to http://localhost:3000.
-    111
+    ```
 
 ## Usage
 
