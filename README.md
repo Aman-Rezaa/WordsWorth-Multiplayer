@@ -31,9 +31,9 @@ A word game built using HTML, CSS, Bootstrap JavaScript, Node.js, Express.js and
 
     Create a .env file in the root directory and add the following variables:
 
-    plaintext
-    
+    ```bash
     PORT=3000
+    ```
     
     
 
@@ -46,7 +46,9 @@ A word game built using HTML, CSS, Bootstrap JavaScript, Node.js, Express.js and
 
 5. *Open the application in your browser:*
 
+    ```bash
     Navigate to http://localhost:3000.
+    111
 
 ## Usage
 
